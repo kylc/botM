@@ -1,0 +1,45 @@
+name:                botM
+version:             0.1
+synopsis:            A Minecraft bot written in Haskell.
+homepage:            http://bitbucket.org/kylc/botm
+license:             BSD3
+license-file:        LICENSE
+author:              kylc
+maintainer:          kcesare@gmail.com
+category:            Network
+
+build-type:          Simple
+extra-source-files:
+    README.markdown
+    examples/Demo.hs
+
+-- Constraint on the version of Cabal needed to build this package.
+cabal-version:       >=1.2
+
+
+library
+  exposed-modules:
+    Network.Minecraft.Actions
+    Network.Minecraft.Core
+    Network.Minecraft.IO
+    Network.Minecraft.State
+    Network.Minecraft.Types
+    Network.Minecraft.Protocol.MinecraftBinary
+    Network.Minecraft.Protocol.Packets
+
+  hs-source-dirs:    src
+  build-depends:     base == 4.*
+                   , binary
+                   , bytestring
+                   , containers
+                   , data-binary-ieee754
+                   , mtl
+                   , network
+                   , text
+                   , zlib
+
+  ghc-options:
+
+executable demo
+  main-is: Demo.hs
+  hs-source-dirs: examples, src
